@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Works 2026 — Ahmad Nafis Al Adieb Portfolio</title>
+  <!-- portfolio admin visual editor v6: click text/photo + drag layout + save Supabase -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070707;
+      --card:#111114;
+      --soft:#8A8A8A;
+      --white:#F5F5F5;
+      --blue:#102CFF;
+      --deep:#001B5E;
+      --lime:#B8FF00;
+      --border:rgba(255,255,255,.12);
+      --glass:rgba(255,255,255,.06);
+      --blur: blur(22px);
+      --mx:50%;
+      --my:50%;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:var(--bg);}
+    body{
+      font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--white);
+      min-height:100vh;
+      overflow-x:hidden;
+      cursor:none;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(16,44,255,.18), transparent 19rem),
+        radial-gradient(circle at 50% -10%, rgba(255,255,255,.17), transparent 18rem),
+        radial-gradient(circle at 50% 35%, rgba(0,27,94,.28), transparent 36rem),
+        #070707;
+    }
+    body::after{
+      content:"";position:fixed;inset:0;z-index:9999;opacity:.13;pointer-events:none;mix-blend-mode:screen;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;background:none;border:0;cursor:none}
+    img{max-width:100%;display:block}
+    .cursor,.cursor-dot{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%)}
+    .cursor{width:38px;height:38px;border:1px solid rgba(184,255,0,.55);transition:width .2s,height .2s,border .2s;background:rgba(16,44,255,.04);backdrop-filter:blur(3px)}
+    .cursor-dot{width:6px;height:6px;background:var(--lime);box-shadow:0 0 22px var(--lime)}
+    .cursor.active{width:72px;height:72px;border-color:rgba(16,44,255,.9)}
+    .grid-bg{position:absolute;inset:0;opacity:.36;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 50% 45%,#000,transparent 72%)}
+    .dot-bg{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:20px 20px;mask-image:linear-gradient(#000,transparent 84%)}
+    .preloader{position:fixed;inset:0;z-index:9998;background:#050505;display:grid;place-items:center;transition:opacity .8s ease,visibility .8s ease}
+    .preloader.hide{opacity:0;visibility:hidden}
+    .loader-orb{width:190px;height:190px;border:1px dashed rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;animation:spin 5s linear infinite;box-shadow:0 0 80px rgba(16,44,255,.28)}
+    .loader-orb span{font-family:'Space Grotesk';font-size:40px;font-weight:700;animation:counterspin 5s linear infinite;color:#fff;text-shadow:0 0 30px rgba(184,255,0,.45)}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes counterspin{to{transform:rotate(-360deg)}}
+    .section{position:relative;min-height:100vh;padding:110px 6vw;overflow:hidden}
+    .container{max-width:1260px;margin:0 auto;position:relative;z-index:2}
+    .glass{background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));border:1px solid var(--border);box-shadow:inset 0 1px rgba(255,255,255,.1),0 25px 80px rgba(0,0,0,.45);backdrop-filter:blur(24px)}
+    .lime{color:var(--lime)}.blue{color:#6f80ff}.muted{color:var(--soft)}
+    .nav-mini{position:absolute;top:36px;left:5vw;right:5vw;z-index:5;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.82);letter-spacing:-.02em}
+    .opening{height:100vh;display:grid;place-items:center;padding:0 5vw;isolation:isolate;transition:transform 1.2s cubic-bezier(.19,1,.22,1),opacity 1s}
+    .opening.zoomed{transform:scale(1.8);opacity:0;pointer-events:none;filter:blur(16px)}
+    .opening-center{width:min(880px,94vw);text-align:center;position:relative;perspective:1200px;animation:fadeIn 1.2s ease both .6s}
+    .portfolio-title{font-family:'Space Grotesk';font-size:clamp(76px,13vw,190px);line-height:.82;font-weight:800;letter-spacing:-.09em;filter:blur(14px);transform:scale(.88);animation:titleIn 1.2s cubic-bezier(.19,1,.22,1) both .85s;text-shadow:0 24px 80px rgba(255,255,255,.12)}
+    .portfolio-title .folio{font-family:'Cormorant Garamond';font-style:italic;font-weight:700;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1.8px rgba(255,255,255,.96);text-shadow:0 0 25px rgba(255,255,255,.18)}
+    .subtitle{margin-top:22px;font-size:13px;color:rgba(255,255,255,.62);letter-spacing:.02em;animation:fadeUp .8s both 1.7s}
+    .mock-stack{height:285px;margin-top:-8px;position:relative;transform-style:preserve-3d;animation:stackFloat 5s ease-in-out infinite 2.2s}
+    .mock-card{position:absolute;left:50%;top:34px;width:190px;height:250px;border-radius:24px;border:5px solid rgba(255,255,255,.88);background:#111;box-shadow:0 24px 60px rgba(0,0,0,.7);overflow:hidden;transform-origin:50% 100%;opacity:0;animation:cardPop .8s cubic-bezier(.19,1,.22,1) forwards}
+    .mock-card::after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(16,44,255,.05),rgba(184,255,0,.08));mix-blend-mode:screen}
+    .mock-card:nth-child(1){transform:translateX(-210px) rotate(-14deg) translateZ(-60px);animation-delay:1.65s}.mock-card:nth-child(2){transform:translateX(-118px) rotate(-7deg) translateZ(-20px);animation-delay:1.78s}.mock-card:nth-child(3){transform:translateX(-30px) rotate(2deg) translateZ(20px);animation-delay:1.91s}.mock-card:nth-child(4){transform:translateX(62px) rotate(10deg) translateZ(-10px);animation-delay:2.04s}.mock-card:nth-child(5){transform:translateX(150px) rotate(14deg) translateZ(-70px);animation-delay:2.17s}
+    .work-art{width:100%;height:100%;padding:18px;background:radial-gradient(circle at 40% 30%,rgba(16,44,255,.8),transparent 42%),linear-gradient(145deg,#0b0b12,#111);display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+    .work-art h4{font-family:'Space Grotesk';font-size:22px;letter-spacing:-.05em}.work-art p{font-size:10px;color:rgba(255,255,255,.7);line-height:1.5}.work-art .mini-bars span{display:block;height:8px;border-radius:10px;background:rgba(255,255,255,.16);margin:8px 0}.work-art .circle{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,rgba(184,255,0,.95),rgba(16,44,255,.95));filter:blur(.2px)}
+    .front-glass{position:absolute;left:50%;top:116px;width:490px;height:205px;transform:translateX(-50%) rotateX(12deg);border-radius:28px;background:linear-gradient(135deg,rgba(16,44,255,.78),rgba(16,44,255,.24));border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 100px rgba(16,44,255,.35);backdrop-filter:blur(10px);opacity:0;animation:fadeUp .8s both 2.22s}
+    .badge-2026{position:absolute;left:calc(50% - 345px);top:295px;width:92px;height:92px;border-radius:50%;background:#fff;color:var(--blue);font-family:'Space Grotesk';font-weight:800;font-size:31px;line-height:.78;display:grid;place-items:center;box-shadow:0 0 50px rgba(255,255,255,.25);opacity:0;animation:bounceIn .8s both 2.6s}.badge-2026 span{display:block}.badge-copy{position:absolute;left:calc(50% - 245px);top:318px;text-align:left;font-size:13px;color:#fff;line-height:1.3;opacity:0;animation:fadeUp .7s both 2.75s}.service-chip{position:absolute;right:calc(50% - 395px);top:290px;text-align:left;background:var(--blue);padding:17px 20px;border-radius:12px;font-size:11px;line-height:2.1;box-shadow:0 22px 60px rgba(16,44,255,.45);opacity:0;animation:fadeUp .8s both 2.85s}.service-chip div{border-bottom:1px solid rgba(255,255,255,.25)}
+    .enter-wrap{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:8}.magnetic{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.035);backdrop-filter:blur(12px);font-size:12px;transition:transform .2s,box-shadow .2s,border .2s}.magnetic:hover{border-color:rgba(184,255,0,.75);box-shadow:0 0 45px rgba(184,255,0,.16)}
+    .scroll-site{display:none}.scroll-site.active{display:block;animation:fadeIn .9s ease both}
+    .hero-identity{padding-top:140px}.selection-box{position:absolute;left:7vw;right:13vw;top:118px;height:310px;border:1px dashed rgba(255,255,255,.38);z-index:1;pointer-events:none}.node{position:absolute;width:12px;height:12px;background:var(--lime);box-shadow:0 0 25px var(--lime);animation:blink 1.8s infinite}.n1{left:-6px;top:-6px}.n2{right:-6px;top:-6px}.n3{left:-6px;bottom:-6px}.n4{right:-6px;bottom:-6px}.n5{left:50%;top:-6px}.n6{left:50%;bottom:-6px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}.eyebrow{font-size:15px;color:#fff;margin-bottom:18px}.eyebrow em{color:var(--soft);font-style:italic}.name-title{font-family:'Space Grotesk';font-size:clamp(62px,9vw,132px);line-height:.88;font-weight:800;letter-spacing:-.08em;background:linear-gradient(#fff,#5d5d5d);-webkit-background-clip:text;background-clip:text;color:transparent;clip-path:inset(0 100% 0 0);animation:maskReveal 1.2s cubic-bezier(.19,1,.22,1) forwards .4s}.intro{max-width:660px;margin-top:32px;color:rgba(255,255,255,.72);line-height:1.9;font-size:16px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.btn-primary{background:#fff;color:#080808;border-color:#fff}.btn-ghost{background:rgba(255,255,255,.04)}.status{display:inline-flex;margin-top:28px;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(184,255,0,.08);border:1px solid rgba(184,255,0,.22);font-size:12px;color:#dfff99}.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime)}
+    .portrait-wrap{position:relative;min-height:680px;display:flex;align-items:flex-end;justify-content:center}.portrait-frame{position:relative;width:min(440px,82vw);height:620px;border:1px solid rgba(255,255,255,.18);overflow:visible;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.0));animation:slideRight 1.1s cubic-bezier(.19,1,.22,1) both .55s}.portrait-frame::before{content:"";position:absolute;inset:-80px -50px;background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.19),transparent 29%),radial-gradient(circle at 50% 70%,rgba(16,44,255,.22),transparent 40%);z-index:-1}.portrait-frame img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:660px;width:auto;filter:grayscale(1) contrast(1.14) brightness(.92);object-fit:contain}.tools-rail{position:absolute;right:-42px;top:108px;display:flex;flex-direction:column;gap:13px;align-items:center}.tools-rail small{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Cormorant Garamond';color:var(--lime);font-size:17px;margin-bottom:8px}.tool-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-weight:800;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .about-card{position:absolute;left:-520px;bottom:58px;width:470px;border-radius:24px;padding:28px}.about-card h3,.skill-mini h3{font-family:'Space Grotesk';font-size:18px;margin-bottom:14px;color:var(--lime)}.about-card p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.74)}.profile-points{margin-top:18px;display:grid;gap:9px;font-size:12px;color:rgba(255,255,255,.73)}.profile-points b{color:#fff}.skill-mini{position:absolute;left:-520px;bottom:-160px;width:470px;border-radius:24px;padding:24px}.skill-list-mini{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.skill-list-mini div{padding:12px;border-radius:15px;background:rgba(255,255,255,.045);font-size:12px;color:rgba(255,255,255,.75)}.skill-list-mini b{color:#fff;display:block;margin-bottom:5px}
+    .section-head{margin-bottom:55px;position:relative}.section-head h2{font-family:'Space Grotesk';font-size:clamp(44px,7vw,92px);letter-spacing:-.07em;line-height:.9}.section-head p{margin-top:18px;max-width:680px;color:rgba(255,255,255,.62);line-height:1.8}.big-watermark{position:absolute;right:0;top:-30px;font-family:'Space Grotesk';font-size:clamp(90px,16vw,220px);font-weight:800;letter-spacing:-.1em;color:rgba(255,255,255,.035);z-index:-1;line-height:.8}
+    .works-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}.project-card{position:relative;min-height:520px;border-radius:34px;padding:28px;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease,border .25s}.project-card:hover{border-color:rgba(16,44,255,.5)}.project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 28%,rgba(16,44,255,.26),transparent 45%);z-index:-1}.project-card .year{font-size:12px;color:var(--lime)}.project-card h3{font-family:'Space Grotesk';font-size:34px;letter-spacing:-.05em;margin:12px 0}.project-meta{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0 18px}.tag{font-size:11px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75)}.project-card p{color:rgba(255,255,255,.68);line-height:1.75;font-size:14px}.outputs{margin:20px 0 24px;display:grid;gap:8px;color:rgba(255,255,255,.72);font-size:13px}.outputs li{list-style:none;display:flex;gap:9px}.outputs li::before{content:"•";color:var(--lime)}.project-visual{height:180px;border-radius:26px;margin-top:16px;position:relative;overflow:hidden;background:linear-gradient(135deg,#02040f,#0e1d4c 50%,#050505);border:1px solid rgba(255,255,255,.1)}.phone-mock{position:absolute;right:34px;top:21px;width:92px;height:150px;border-radius:22px;border:5px solid #111;background:#050505;box-shadow:0 20px 45px rgba(0,0,0,.45);padding:11px}.phone-mock span{display:block;height:12px;border-radius:20px;background:rgba(255,255,255,.15);margin:8px 0}.visual-title{position:absolute;left:26px;bottom:24px;font-family:'Space Grotesk';font-size:38px;letter-spacing:-.07em;color:rgba(255,255,255,.8)}.view-btn{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#fff;padding:12px 15px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13)}
+    .skills-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.skill-card{border-radius:28px;padding:28px;min-height:260px;transition:.25s;position:relative;overflow:hidden}.skill-card:hover{transform:translateY(-8px);box-shadow:0 30px 100px rgba(16,44,255,.18)}.skill-icon{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#050505;font-weight:900;margin-bottom:30px}.skill-card h3{font-family:'Space Grotesk';font-size:25px;letter-spacing:-.04em;margin-bottom:14px}.skill-card p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.75}
+    .experience-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:start}.timeline{position:relative;padding-left:28px}.timeline::before{content:"";position:absolute;left:5px;top:0;width:2px;height:100%;background:linear-gradient(var(--lime),var(--blue),transparent);transform-origin:top}.exp-card{margin-bottom:20px;border-radius:24px;padding:22px;position:relative}.exp-card::before{content:"";position:absolute;left:-29px;top:28px;width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 24px var(--lime)}.exp-card h3{font-family:'Space Grotesk';letter-spacing:-.035em}.exp-card b{display:block;color:rgba(255,255,255,.78);font-size:12px;margin:9px 0 12px}.exp-card p{color:rgba(255,255,255,.64);font-size:13px;line-height:1.75}.exp-preview{position:sticky;top:120px;height:620px;border-radius:36px;overflow:hidden}.exp-preview::before{content:"2026";position:absolute;inset:auto -30px 20px auto;font-family:'Space Grotesk';font-size:180px;font-weight:800;color:rgba(255,255,255,.045);letter-spacing:-.1em}.preview-window{position:absolute;inset:38px;border-radius:30px;background:radial-gradient(circle at 35% 30%,rgba(16,44,255,.5),transparent 42%),linear-gradient(145deg,#050505,#12215c);border:1px solid rgba(255,255,255,.12);padding:34px}.preview-window h3{font-family:'Space Grotesk';font-size:58px;letter-spacing:-.08em;line-height:.9;position:absolute;bottom:34px}.preview-chip{display:inline-flex;padding:11px 14px;border-radius:999px;background:rgba(255,255,255,.12);font-size:12px}.preview-card-mini{position:absolute;right:34px;top:120px;width:190px;border-radius:24px;padding:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(18px)}
+    .roadmap-panel{border-radius:36px;padding:56px;min-height:430px;background:radial-gradient(circle at 50% 70%,rgba(16,44,255,.35),transparent 48%),rgba(255,255,255,.035);position:relative;overflow:hidden}.roadmap-track{position:relative;margin-top:70px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.roadmap-track::before{content:"";position:absolute;left:7%;right:7%;top:35px;height:2px;background:linear-gradient(90deg,var(--blue),var(--lime));box-shadow:0 0 30px rgba(16,44,255,.8);animation:loadLine 3.8s ease-in-out infinite}.phase{position:relative;padding-top:65px}.phase::before{content:"";position:absolute;top:26px;left:12px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 24px #fff}.phase-pill{border-radius:999px;padding:16px 18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);font-size:13px;line-height:1.4}.phase-pill b{display:block;margin-bottom:4px;color:#fff}.dashed-circle{position:absolute;width:260px;height:260px;border:1px dashed rgba(255,255,255,.15);border-radius:50%;top:95px;left:8%;animation:spin 18s linear infinite}.dashed-circle.two{left:auto;right:10%;animation-duration:23s}
+    .cert-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.cert-card{min-height:280px;border-radius:26px;padding:22px;position:relative;overflow:hidden;transition:.25s;filter:grayscale(1)}.cert-card:hover{filter:grayscale(0);transform:rotateX(5deg) rotateY(-6deg) translateY(-8px)}.cert-card::before{content:"";position:absolute;left:20px;right:20px;top:70px;height:120px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(16,44,255,.14));border:1px solid rgba(255,255,255,.12)}.cert-card .label{font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em}.cert-card h3{position:absolute;bottom:65px;left:22px;right:22px;font-family:'Space Grotesk';font-size:21px;letter-spacing:-.04em}.cert-card p{position:absolute;bottom:22px;left:22px;right:22px;color:rgba(255,255,255,.58);font-size:11px;line-height:1.55}
+    .contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:44px;align-items:center}.contact-title{font-family:'Space Grotesk';font-size:clamp(58px,8vw,120px);letter-spacing:-.08em;line-height:.88}.contact-title span{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.25)}.contact-info{margin-top:30px;display:grid;gap:13px;color:rgba(255,255,255,.72)}.contact-info b{color:#fff}.contact-form{border-radius:34px;padding:30px;display:grid;gap:14px}.field{padding:17px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.55);font-size:13px}.footer{padding:30px 6vw;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;color:rgba(255,255,255,.45);font-size:12px}
+    .reveal{opacity:0;transform:translateY(36px);filter:blur(10px);transition:1s cubic-bezier(.19,1,.22,1)}.reveal.visible{opacity:1;transform:none;filter:blur(0)}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes titleIn{to{filter:blur(0);transform:scale(1)}}@keyframes cardPop{to{opacity:1}}@keyframes stackFloat{50%{transform:translateY(-12px) rotateX(3deg)}}@keyframes bounceIn{0%{opacity:0;transform:scale(.45)}60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}@keyframes maskReveal{to{clip-path:inset(0 0 0 0)}}@keyframes slideRight{from{opacity:0;transform:translateX(80px);filter:blur(12px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes blink{50%{opacity:.35;transform:scale(.82)}}@keyframes loadLine{0%{clip-path:inset(0 100% 0 0)}55%,100%{clip-path:inset(0 0 0 0)}}
+    @media(max-width:1050px){body{cursor:auto}.cursor,.cursor-dot{display:none}.hero-grid,.experience-layout,.contact-grid{grid-template-columns:1fr}.portrait-wrap{min-height:780px}.about-card,.skill-mini{position:relative;left:auto;bottom:auto;width:100%;margin-top:20px}.skill-mini{bottom:auto}.works-grid,.skills-row{grid-template-columns:1fr}.cert-grid{grid-template-columns:repeat(2,1fr)}.roadmap-track{grid-template-columns:1fr}.roadmap-track::before{left:21px;right:auto;top:20px;bottom:0;width:2px;height:100%;}.phase{padding-top:0;padding-left:58px}.phase::before{top:14px;left:13px}.nav-mini{font-size:10px}.service-chip{display:none}.badge-2026{left:7vw}.badge-copy{left:calc(7vw + 104px)}.front-glass{width:78vw}.mock-card{width:150px;height:215px}.opening-center{transform:scale(.88)}}
+    @media(max-width:650px){.section{padding:90px 20px}.portfolio-title{font-size:76px}.mock-stack{transform:scale(.78);margin-left:-8vw}.badge-2026{top:365px}.badge-copy{top:386px}.hero-identity{padding-top:110px}.selection-box{display:none}.name-title{font-size:58px}.portrait-frame{height:510px}.portrait-frame img{height:545px}.tools-rail{right:8px}.cert-grid{grid-template-columns:1fr}.footer{display:grid;gap:10px}.roadmap-panel{padding:28px}.project-card{padding:22px}.nav-mini{left:20px;right:20px}.skills-row{gap:14px}.contact-title{font-size:60px}}
+  
+
+    /* ===== HERO LAYOUT CLEAN FIX =====
+       Bagian identity dibuat ulang agar tidak saling menimpa: headline, about card,
+       kategori skill, portrait, selection frame, dan tools rail punya area masing-masing. */
+    .hero-identity{
+      padding-top:112px;
+      padding-bottom:96px;
+      min-height:auto;
+      overflow:hidden;
+    }
+    .hero-grid-clean{
+      grid-template-columns:minmax(0, .96fr) minmax(360px, .78fr);
+      gap:clamp(44px,6vw,86px);
+      align-items:start;
+    }
+    .hero-copy{
+      position:relative;
+      z-index:4;
+      max-width:720px;
+      padding-top:10px;
+    }
+    .hero-copy .name-title{
+      font-size:clamp(68px,8.1vw,126px);
+      line-height:.88;
+      letter-spacing:-.085em;
+      max-width:720px;
+    }
+    .hero-copy .intro{
+      max-width:650px;
+      margin-top:26px;
+      font-size:15.5px;
+      line-height:1.85;
+    }
+    .hero-copy .status{margin-top:24px;}
+    .hero-copy .hero-actions{margin-top:24px;}
+    .profile-stack{
+      width:100%;
+      max-width:690px;
+      margin-top:28px;
+      display:grid;
+      gap:16px;
+      position:relative;
+      z-index:5;
+    }
+    .profile-stack .about-card,
+    .profile-stack .skill-mini{
+      position:relative;
+      left:auto;
+      bottom:auto;
+      width:100%;
+      margin:0;
+      border-radius:24px;
+      transform:none;
+    }
+    .profile-stack .about-card{padding:24px 26px;}
+    .profile-stack .about-card p{
+      font-size:13px;
+      line-height:1.78;
+    }
+    .profile-stack .skill-mini{padding:22px 24px;}
+    .profile-stack .skill-list-mini{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:11px;
+    }
+    .profile-stack .skill-list-mini div{
+      min-height:78px;
+      padding:13px 14px;
+    }
+    .profile-stack .skill-list-mini div:last-child{grid-column:1/-1;}
+    .profile-points{
+      grid-template-columns:1fr;
+      margin-top:16px;
+    }
+    .portrait-wrap-clean{
+      min-height:650px;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:8px;
+      z-index:3;
+    }
+    .portrait-wrap-clean .portrait-frame{
+      width:min(430px,100%);
+      height:620px;
+      border-color:rgba(255,255,255,.2);
+    }
+    .portrait-wrap-clean .portrait-frame img{
+      height:646px;
+    }
+    .hero-selection{
+      left:auto;
+      right:7.8vw;
+      top:92px;
+      width:min(455px,33vw);
+      height:620px;
+      border-style:solid;
+      opacity:.8;
+    }
+    .hero-selection .n5,
+    .hero-selection .n6{display:none;}
+    .portrait-wrap-clean .tools-rail{
+      right:-58px;
+      top:88px;
+    }
+    .portrait-wrap-clean .tool-icon{
+      width:44px;
+      height:44px;
+      border-radius:13px;
+      font-size:14px;
+    }
+
+    @media(max-width:1200px){
+      .hero-grid-clean{grid-template-columns:minmax(0,1fr) minmax(330px,.72fr);gap:42px;}
+      .hero-copy .name-title{font-size:clamp(62px,7.6vw,104px);}
+      .hero-selection{right:6vw;width:360px;}
+      .portrait-wrap-clean .tools-rail{right:-38px;}
+    }
+    @media(max-width:1050px){
+      .hero-identity{padding-top:104px;}
+      .hero-grid-clean{grid-template-columns:1fr;}
+      .hero-copy{max-width:none;}
+      .hero-copy .name-title{font-size:clamp(60px,14vw,108px);}
+      .profile-stack{max-width:none;}
+      .portrait-wrap-clean{min-height:640px;align-items:center;margin-top:12px;}
+      .portrait-wrap-clean .portrait-frame{width:min(430px,82vw);}
+      .portrait-wrap-clean .tools-rail{right:-48px;}
+      .hero-selection{display:none;}
+    }
+    @media(max-width:650px){
+      .hero-identity{padding-top:94px;padding-bottom:76px;}
+      .hero-copy .name-title{font-size:56px;line-height:.9;}
+      .hero-copy .intro{font-size:14px;line-height:1.78;}
+      .profile-stack{margin-top:22px;}
+      .profile-stack .about-card,
+      .profile-stack .skill-mini{padding:20px;}
+      .profile-stack .skill-list-mini{grid-template-columns:1fr;}
+      .profile-stack .skill-list-mini div:last-child{grid-column:auto;}
+      .portrait-wrap-clean{min-height:548px;}
+      .portrait-wrap-clean .portrait-frame{height:510px;width:min(350px,86vw);}
+      .portrait-wrap-clean .portrait-frame img{height:540px;}
+      .portrait-wrap-clean .tools-rail{right:8px;top:62px;gap:9px;}
+      .portrait-wrap-clean .tool-icon{width:38px;height:38px;font-size:12px;}
+    }
+
+    /* ===== HIDDEN SUPABASE PORTFOLIO ADMIN EDITOR ===== */
+    .porto-admin{position:fixed;inset:0;z-index:12000;display:none;color:#f7f7f7;font-family:'Plus Jakarta Sans',system-ui,sans-serif;cursor:auto;background:rgba(0,0,0,.74);backdrop-filter:blur(20px)}
+    .porto-admin.open{display:block;animation:adminFade .22s ease both}
+    .porto-admin *{box-sizing:border-box;cursor:auto}
+    .admin-shell{position:absolute;inset:24px;display:grid;grid-template-rows:auto 1fr;border:1px solid rgba(255,255,255,.16);border-radius:28px;background:linear-gradient(145deg,rgba(10,10,14,.96),rgba(5,5,7,.94));box-shadow:0 28px 120px rgba(0,0,0,.7);overflow:hidden}
+    .admin-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035)}
+    .admin-head strong{font-family:'Space Grotesk';font-size:18px;letter-spacing:-.03em}.admin-head span{font-size:12px;color:rgba(255,255,255,.62)}
+    .admin-actions{display:flex;gap:10px;flex-wrap:wrap}.admin-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;font-size:12px;font-weight:700;transition:.18s}.admin-btn:hover{border-color:rgba(184,255,0,.55);transform:translateY(-1px)}.admin-btn.primary{background:#fff;color:#050505}.admin-btn.danger{border-color:rgba(255,80,80,.4);color:#ffb0b0}.admin-btn.lime{background:rgba(184,255,0,.13);border-color:rgba(184,255,0,.35);color:#dfff8b}
+    .admin-body{display:grid;grid-template-columns:260px 1fr;min-height:0}.admin-side{border-right:1px solid rgba(255,255,255,.1);padding:18px;background:rgba(255,255,255,.02);overflow:auto}.admin-side p{font-size:12px;line-height:1.65;color:rgba(255,255,255,.62);margin:10px 0 16px}.admin-tabs{display:grid;gap:8px}.admin-tab{width:100%;text-align:left;padding:13px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:rgba(255,255,255,.72);font-size:12px}.admin-tab.active{background:rgba(184,255,0,.12);border-color:rgba(184,255,0,.36);color:#fff}
+    .admin-main{padding:20px;overflow:auto}.admin-panel{display:none}.admin-panel.active{display:block;animation:adminFade .18s ease both}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.admin-card{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045);border-radius:22px;padding:18px;margin-bottom:14px}.admin-card h3{font-family:'Space Grotesk';font-size:20px;letter-spacing:-.035em;margin-bottom:8px}.admin-card p,.admin-help{font-size:12px;line-height:1.65;color:rgba(255,255,255,.62);margin-bottom:14px}.admin-field{display:grid;gap:7px;margin-bottom:12px}.admin-field label{font-size:11px;color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.admin-field input,.admin-field textarea,.admin-field select{width:100%;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.28);color:#fff;border-radius:14px;padding:12px 13px;outline:none;font:inherit;font-size:13px}.admin-field textarea{min-height:98px;resize:vertical;line-height:1.55}.admin-field input:focus,.admin-field textarea:focus{border-color:rgba(184,255,0,.55);box-shadow:0 0 0 3px rgba(184,255,0,.08)}
+    .admin-text-list{display:grid;gap:12px}.admin-text-item{border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:14px;background:rgba(255,255,255,.025)}.admin-text-item .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.admin-text-item b{font-size:12px}.admin-text-item small{font-size:10px;color:rgba(255,255,255,.48)}.admin-text-item textarea{min-height:72px}
+    .admin-status{display:none;position:fixed;left:50%;bottom:24px;z-index:13000;transform:translateX(-50%);max-width:min(560px,calc(100vw - 32px));padding:13px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(10,10,12,.92);box-shadow:0 20px 70px rgba(0,0,0,.55);font-size:12px;color:#fff}.admin-status.show{display:block;animation:fadeUp .18s ease both}.admin-status.ok{border-color:rgba(184,255,0,.45)}.admin-status.err{border-color:rgba(255,80,80,.45)}
+    .admin-editing [data-admin-live="true"]{outline:1.5px dashed rgba(184,255,0,.75)!important;outline-offset:6px;border-radius:10px}.admin-editing [data-admin-live="true"]:hover{box-shadow:0 0 0 9999px rgba(184,255,0,.025),0 0 36px rgba(184,255,0,.16)!important}.admin-added-card{position:relative}.admin-added-card::after{content:'ADMIN NEW';position:absolute;right:18px;top:18px;font-size:9px;letter-spacing:.1em;color:#050505;background:var(--lime);padding:6px 8px;border-radius:999px;font-weight:900}.admin-added-section{position:relative}.admin-added-section::before{content:'Custom Section';position:absolute;right:6vw;top:78px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);z-index:5}.admin-list{display:grid;gap:10px}.admin-list-row{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:12px;background:rgba(255,255,255,.035)}.admin-list-row div{font-size:12px;color:rgba(255,255,255,.75)}
+    .admin-login{max-width:560px}.admin-login .admin-card{padding:24px}.admin-secret-note{font-size:11px;color:rgba(255,255,255,.52);line-height:1.6}.admin-kbd{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);border-radius:9px;padding:3px 7px;font-size:11px;color:#fff}.admin-mini-preview{width:80px;height:80px;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:#111}.admin-code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;line-height:1.55}.admin-close-x{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;background:rgba(255,255,255,.05)}
+    @keyframes adminFade{from{opacity:0}to{opacity:1}}
+    @media(max-width:900px){.admin-shell{inset:10px;border-radius:20px}.admin-body{grid-template-columns:1fr}.admin-side{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);max-height:190px}.admin-tabs{grid-template-columns:repeat(3,1fr)}.admin-grid{grid-template-columns:1fr}.admin-head{align-items:flex-start;flex-direction:column}.admin-actions{width:100%}.admin-btn{flex:1}.admin-main{padding:14px}.admin-tab{padding:11px 10px}}
+
+    /* ===== VISUAL DIRECT EDITOR MODE v6 ===== */
+    .visual-editor-hud{
+      position:fixed;left:50%;top:18px;transform:translateX(-50%);
+      z-index:15000;display:none;align-items:center;gap:10px;flex-wrap:wrap;
+      max-width:min(980px,calc(100vw - 24px));padding:10px 12px;border-radius:999px;
+      background:linear-gradient(145deg,rgba(9,9,12,.92),rgba(12,12,18,.78));
+      border:1px solid rgba(184,255,0,.35);box-shadow:0 22px 80px rgba(0,0,0,.55),0 0 45px rgba(184,255,0,.12);
+      backdrop-filter:blur(18px);font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#fff;cursor:auto;
+    }
+    body.visual-editor-mode .visual-editor-hud{display:flex;animation:fadeUp .25s ease both}
+    .visual-editor-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:rgba(184,255,0,.12);border:1px solid rgba(184,255,0,.28);font-size:12px;font-weight:900;color:#eaff9a;letter-spacing:.02em}
+    .visual-editor-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime);animation:blink 1.25s infinite}
+    .visual-editor-hint{font-size:11px;color:rgba(255,255,255,.72);max-width:420px}
+    .visual-editor-btn{min-height:36px;padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;font-size:11px;font-weight:800;cursor:pointer!important}
+    .visual-editor-btn.primary{background:#fff;color:#050505;border-color:#fff}
+    .visual-editor-btn.danger{border-color:rgba(255,94,94,.35);color:#ffbaba}
+    body.visual-editor-mode, body.visual-editor-mode *{cursor:auto!important}
+    body.visual-editor-mode [data-admin-live="true"]{
+      outline:1.5px dashed rgba(184,255,0,.92)!important;outline-offset:5px;border-radius:10px;
+      min-height:1.15em;
+    }
+    body.visual-editor-mode [data-admin-live="true"]:hover{
+      background:rgba(184,255,0,.06)!important;box-shadow:0 0 0 9999px rgba(184,255,0,.016),0 0 35px rgba(184,255,0,.13)!important;
+    }
+    body.visual-editor-mode [contenteditable="true"]{caret-color:var(--lime)}
+    body.visual-editor-mode [data-visual-box="true"]{
+      outline:1.5px solid rgba(16,44,255,.64)!important;outline-offset:7px;position:relative;
+      box-shadow:0 0 0 1px rgba(16,44,255,.14),0 18px 65px rgba(16,44,255,.1)!important;
+      touch-action:none;
+    }
+    body.visual-editor-mode [data-visual-box="true"]::before{
+      content:"GESER";position:absolute;left:14px;top:12px;z-index:20;
+      font-size:9px;letter-spacing:.14em;font-weight:900;color:#050505;background:var(--lime);
+      padding:5px 8px;border-radius:999px;box-shadow:0 0 18px rgba(184,255,0,.35);pointer-events:none;
+    }
+    body.visual-editor-mode [data-visual-box="true"]:hover{outline-color:rgba(184,255,0,.95)!important}
+    body.visual-editor-mode [data-visual-box="true"].visual-dragging{
+      outline-color:rgba(184,255,0,1)!important;box-shadow:0 28px 100px rgba(184,255,0,.16)!important;z-index:50!important;
+    }
+    body.visual-editor-mode img[data-visual-image="true"]{
+      outline:2px dashed rgba(111,128,255,.95)!important;outline-offset:7px;border-radius:12px;
+    }
+    body.visual-editor-mode img[data-visual-image="true"]:hover{filter:grayscale(0) contrast(1.08) brightness(1.05)!important}
+    .visual-selection-tip{
+      position:fixed;z-index:14999;display:none;pointer-events:none;padding:8px 10px;border-radius:12px;
+      background:rgba(7,7,9,.9);border:1px solid rgba(184,255,0,.32);color:#eaff9a;font-size:11px;
+      box-shadow:0 14px 40px rgba(0,0,0,.4);backdrop-filter:blur(12px)
+    }
+    body.visual-editor-mode .visual-selection-tip{display:block}
+    @media(max-width:720px){
+      .visual-editor-hud{top:10px;border-radius:22px;align-items:flex-start;justify-content:center}
+      .visual-editor-hint{display:none}
+      .visual-editor-btn{flex:1}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="cursor"></div><div class="cursor-dot"></div>
+  <div class="preloader"><div class="loader-orb"><span>2026</span></div></div>
+
+  <main>
+    <section class="opening" id="opening">
+      <div class="grid-bg"></div><div class="dot-bg"></div>
+      <div class="nav-mini"><span>Portfolio</span><strong>[ 2026 ]</strong><span>Graphic Design / UI UX Web App</span></div>
+      <div class="opening-center">
+        <h1 class="portfolio-title">Porto<span class="folio">folio</span></h1>
+        <p class="subtitle">Selected Works by Ahmad Nafis Al Adieb</p>
+        <div class="mock-stack" id="mockStack">
+          <div class="mock-card"><div class="work-art"><h4>Agronity25</h4><div class="mini-bars"><span></span><span></span><span></span></div><p>UI/UX Web App · Student Platform</p></div></div>
+          <div class="mock-card"><div class="work-art"><h4>SpaceQ</h4><div class="circle"></div><p>Islamic Productivity · SocialQ</p></div></div>
+          <div class="mock-card"><div class="work-art"><h4>NALAYA</h4><div class="mini-bars"><span></span><span></span></div><p>PPKO Ormawa · ICT Documentation</p></div></div>
+          <div class="mock-card"><div class="work-art"><h4>Pencok</h4><div class="circle"></div><p>Brand Identity · Business Pitch</p></div></div>
+          <div class="mock-card"><div class="work-art"><h4>LIDM</h4><div class="mini-bars"><span></span><span></span><span></span></div><p>Video Digital Pendidikan</p></div></div>
+          <div class="front-glass"></div>
+        </div>
+        <div class="badge-2026"><div><span>20</span><span>26</span></div></div>
+        <div class="badge-copy">Selected Works<br><span class="muted">Brand Identity</span></div>
+        <div class="service-chip"><div>Brand Identity</div><div>Social Media Design</div><div>UI/UX Web App</div><div>Poster Design</div><div>Digital Presentation</div></div>
+      </div>
+      <div class="nav-mini" style="top:auto;bottom:38px"><span>Ahmad Nafis Al Adieb</span><span></span><span>Works</span></div>
+      <div class="enter-wrap"><button class="magnetic" id="enterBtn">[ Enter Portfolio ] <span>↘</span></button></div>
+    </section>
+
+    <div class="scroll-site" id="site">
+      <section class="section hero-identity" id="identity">
+        <div class="grid-bg"></div>
+        <div class="selection-box hero-selection"><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span><span class="node n5"></span><span class="node n6"></span></div>
+        <div class="container hero-grid hero-grid-clean">
+          <div class="hero-copy">
+            <div class="eyebrow">Graphic Designer <em>/ UI UX Designer</em></div>
+            <h2 class="name-title">Ahmad Nafis<br>Al Adieb</h2>
+            <div class="status">Available for Creative Projects</div>
+            <p class="intro">Mahasiswa Teknologi Industri Pertanian 2025 yang berfokus pada desain grafis, UI/UX web app, branding digital, dan visual storytelling untuk proyek mahasiswa, organisasi, produk, serta presentasi kompetisi.</p>
+            <div class="hero-actions">
+              <a href="#works" class="magnetic btn-primary">View Selected Works</a>
+              <a href="#contact" class="magnetic btn-ghost">Download CV</a>
+            </div>
+
+            <div class="profile-stack">
+              <div class="about-card glass reveal">
+                <h3>About Me</h3>
+                <p>Saya Ahmad Nafis Al Adieb, mahasiswa Program Studi Teknologi Industri Pertanian angkatan 2025 yang memiliki ketertarikan kuat pada desain grafis, UI/UX design, web app interface, dan creative digital production. Saya terbiasa mengembangkan tampilan visual yang modern, rapi, komunikatif, dan siap digunakan untuk kebutuhan organisasi, kompetisi, presentasi bisnis, branding produk, hingga platform digital.</p>
+                <div class="profile-points">
+                  <span><b>Role:</b> Graphic Designer · UI/UX Web App Designer · Creative Digital Designer</span>
+                  <span><b>Current:</b> Mahasiswa Teknologi Industri Pertanian 2025 · Universitas Lambung Mangkurat</span>
+                  <span><b>Focus:</b> Branding, Web App UI, Social Media Design, Pitch Deck, Digital Campaign</span>
+                </div>
+              </div>
+              <div class="skill-mini glass reveal">
+                <h3>Kategori Keahlian</h3>
+                <div class="skill-list-mini">
+                  <div><b>1. Graphic Design</b>Poster, layout, typography, visual identity.</div>
+                  <div><b>2. UI/UX Web App</b>Wireframe, mobile app layout, user flow.</div>
+                  <div><b>3. Branding & Campaign</b>Brand tone, product identity, storytelling.</div>
+                  <div><b>4. Digital Presentation</b>Pitch deck, proposal visual, competition slide.</div>
+                  <div><b>5. ICT & Documentation</b>Live report, aset visual, publikasi digital.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portrait-wrap portrait-wrap-clean">
+            <div class="portrait-frame">
+              <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span>
+              <img src="https://www.image2url.com/r2/default/images/1781056747557-48a8b21d-e2d1-406a-8d50-d0bab50f4208.png" alt="Ahmad Nafis Al Adieb portrait" />
+              <div class="tools-rail"><small>Softwares / Tools</small><div class="tool-icon">Fg</div><div class="tool-icon">Ps</div><div class="tool-icon">Lr</div><div class="tool-icon">Cv</div><div class="tool-icon">HTML</div><div class="tool-icon">JS</div><div class="tool-icon">SB</div><div class="tool-icon">▲</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="works">
+        <div class="dot-bg"></div>
+        <div class="container">
+          <div class="section-head reveal"><div class="big-watermark">WORKS</div><h2>Selected Works</h2><p>A curated collection of graphic design, UI/UX web app, branding, digital campaign, and student project visuals.</p></div>
+          <div class="works-grid">
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>Agronity25 Web App</h3><div class="project-meta"><span class="tag">UI/UX Web App</span><span class="tag">Student Platform</span><span class="tag">Social Feature</span></div><p>Agronity25 adalah konsep aplikasi web untuk kebutuhan mahasiswa angkatan, dirancang sebagai platform akademik, sosial, produktivitas, dan komunitas dalam satu ekosistem digital.</p><ul class="outputs"><li>Dashboard mahasiswa dan login</li><li>Social media feature Tygron</li><li>Konsep IPK, journaling, keuangan, chat, AI assistant</li><li>Supabase-connected app direction</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="phone-mock"><span></span><span></span><span></span><span></span></div><div class="visual-title">AGRONITY</div></div></article>
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>SpaceQ & SocialQ</h3><div class="project-meta"><span class="tag">Mobile Web App</span><span class="tag">Islamic Productivity</span><span class="tag">Social Interaction</span></div><p>Konsep aplikasi spiritual dan produktivitas digital dengan fitur SholatQ, JurnalQ, MurajaahQ, TadarusQ, dan SocialQ. Fokus pada UI nyaman, rapi, dan mudah digunakan.</p><ul class="outputs"><li>Mobile web app UI</li><li>Floating navigation glassmorphism</li><li>SocialQ circular post design</li><li>Autoplay interaction system</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="phone-mock"><span></span><span></span><span></span></div><div class="visual-title">SOCIALQ</div></div></article>
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>NALAYA — PPKO Ormawa</h3><div class="project-meta"><span class="tag">ICT Documentation</span><span class="tag">Website Design</span><span class="tag">Digital Campaign</span></div><p>NALAYA adalah program pemberdayaan berbasis inovasi maggot rumah tangga, pakan alternatif, pengolahan hasil, branding, dan digitalisasi.</p><ul class="outputs"><li>Website program dan dokumentasi kegiatan</li><li>Live report dan template sosial media</li><li>Sistem pengumpulan dokumentasi</li><li>Visual publikasi program</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="visual-title">NALAYA</div></div></article>
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>Pencok Chill & Crunch</h3><div class="project-meta"><span class="tag">Brand Identity</span><span class="tag">Business Pitch</span><span class="tag">Product Visual</span></div><p>Rebranding kuliner pencok buah khas Banjar menjadi street food modern berbasis buah lokal Kalimantan Selatan, segar, higienis, dan siap dipresentasikan untuk PMW.</p><ul class="outputs"><li>Brand concept, pitch deck, product mockup</li><li>Booth direction dan packaging concept</li><li>Dana diajukan Rp10.000.000</li><li>Target Banjarbaru, kampus ULM, dan CFD</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="visual-title">PENCOK</div></div></article>
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>LIDM Video Digital Pendidikan</h3><div class="project-meta"><span class="tag">Creative Concept</span><span class="tag">Educational Campaign</span><span class="tag">Storytelling</span></div><p>Project video edukatif tentang doom spending dan fast fashion untuk literasi konsumsi digital berkelanjutan generasi muda.</p><ul class="outputs"><li>Konsep cerita video dan visual direction</li><li>Scene breakdown dan dokumen shooting</li><li>Edukasi digital campaign</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="visual-title">LIDM</div></div></article>
+            <article class="project-card glass reveal"><span class="year">2026</span><h3>KOAGALAM</h3><div class="project-meta"><span class="tag">Innovation Writing</span><span class="tag">Research Visual</span><span class="tag">Scientific Presentation</span></div><p>Karya inovasi pemanfaatan kulit galam sebagai bio-koagulan untuk bioremediasi air lahan basah, dikemas dengan storytelling problem-solution.</p><ul class="outputs"><li>Essay competition concept</li><li>Scientific visual direction</li><li>Presentation material</li><li>Problem-solution storytelling</li></ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="visual-title">KOAGALAM</div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills"><div class="container"><div class="section-head reveal"><div class="big-watermark">SKILLS</div><h2>Core Skills</h2><p>Combining visual design, interface thinking, and storytelling to create digital experiences with clear purpose.</p></div><div class="skills-row"><div class="skill-card glass reveal"><div class="skill-icon">✦</div><h3>Graphic Design</h3><p>Poster design, layouting, typography, composition, social media design, campaign visual.</p></div><div class="skill-card glass reveal"><div class="skill-icon">⌁</div><h3>UI/UX Design</h3><p>Mobile web app interface, user flow, wireframe, navigation system, interaction design.</p></div><div class="skill-card glass reveal"><div class="skill-icon">◌</div><h3>Branding & Direction</h3><p>Brand identity, visual moodboard, product storytelling, presentation identity.</p></div><div class="skill-card glass reveal"><div class="skill-icon">▣</div><h3>Digital Production</h3><p>Pitch deck, website portfolio, documentation asset, social media publishing, visual report.</p></div></div></div></section>
+
+      <section class="section" id="experience"><div class="container"><div class="section-head reveal"><div class="big-watermark">2026</div><h2>Experience</h2><p>Selected roles and project-based experiences in design, documentation, web app concept, and creative direction.</p></div><div class="experience-layout"><div class="timeline"><div class="exp-card glass reveal"><h3>2026 — PIC ICT & Dokumentasi NALAYA</h3><b>IAAS LC ULM / PPKO Ormawa</b><p>Mengelola dokumentasi, live report, materi publikasi, aset visual, dan progres digital program pemberdayaan masyarakat.</p></div><div class="exp-card glass reveal"><h3>2026 — CEO / Manajer Usaha Pencok Chill & Crunch</h3><b>Program Kewirausahaan Mahasiswa</b><p>Memimpin arah bisnis, konsep produk, strategi branding, proposal usaha, dan visual pitch.</p></div><div class="exp-card glass reveal"><h3>2026 — UI/UX Web App Designer</h3><b>Agronity25 & SpaceQ Project</b><p>Merancang interface, user flow, fitur sosial, dashboard, navigasi, dan pengalaman pengguna.</p></div><div class="exp-card glass reveal"><h3>2026 — Creative Contributor LIDM</h3><b>Video Digital Pendidikan</b><p>Terlibat dalam konsep edukasi visual tentang doom spending dan fast fashion.</p></div><div class="exp-card glass reveal"><h3>2026 — Ketua Tim KOAGALAM</h3><b>Innovation / Essay Project</b><p>Mengembangkan gagasan inovasi kulit galam sebagai solusi bioremediasi air lahan basah.</p></div></div><div class="exp-preview glass reveal"><div class="preview-window"><span class="preview-chip">Selected Role Preview</span><div class="preview-card-mini">Graphic Designer<br><span class="muted">UI/UX · ICT · Branding</span></div><h3>Creative<br>Digital<br>Work</h3></div></div></div></div></section>
+
+      <section class="section" id="roadmap"><div class="container"><div class="section-head reveal"><h2>Creative Development Roadmap</h2><p>A structured journey of building visual identity, interface design, and digital portfolio systems.</p></div><div class="roadmap-panel glass reveal"><div class="dashed-circle"></div><div class="dashed-circle two"></div><div class="roadmap-track"><div class="phase"><div class="phase-pill"><b>Phase 1 — Research</b>Understanding user needs, project goals, audience behavior.</div></div><div class="phase"><div class="phase-pill"><b>Phase 2 — Concept</b>Moodboard, layout direction, typography, color palette.</div></div><div class="phase"><div class="phase-pill"><b>Phase 3 — Design</b>Interface, poster, mockup, social media asset.</div></div><div class="phase"><div class="phase-pill"><b>Phase 4 — Interaction</b>Animation, micro-interaction, hover state.</div></div><div class="phase"><div class="phase-pill"><b>Phase 5 — Publish</b>Website, social media, presentation, documentation.</div></div></div></div></div></section>
+
+      <section class="section" id="certificates"><div class="container"><div class="section-head reveal"><div class="big-watermark">CERT</div><h2>Certificate & Achievement</h2><p>A collection of certificates, recognitions, program involvement, and competition-based creative works. Sertifikat asli dapat dimasukkan dalam bentuk scan/foto tanpa mengarang nama sertifikat.</p></div><div class="cert-grid"><div class="cert-card glass reveal"><span class="label">Certificate</span><h3>PMW / Entrepreneurship</h3><p>Pencok Chill & Crunch · Business Plan, Product Branding, Pitch Deck.</p></div><div class="cert-card glass reveal"><span class="label">Program</span><h3>PPKO Ormawa</h3><p>NALAYA · ICT Documentation, Website, Visual Publication.</p></div><div class="cert-card glass reveal"><span class="label">Competition</span><h3>LIDM / Digital Education</h3><p>Creative Concept, Storytelling, Educational Campaign.</p></div><div class="cert-card glass reveal"><span class="label">Recognition</span><h3>Innovation Essay</h3><p>KOAGALAM · Scientific Writing, Innovation Concept.</p></div><div class="cert-card glass reveal"><span class="label">Learning</span><h3>Design & UI/UX</h3><p>Graphic Design, UI/UX, Web App Interface certificates placeholder.</p></div></div></div></section>
+
+      <section class="section" id="contact"><div class="grid-bg"></div><div class="container contact-grid"><div class="reveal"><div class="big-watermark">CONTACT</div><h2 class="contact-title">Let’s Build <span>Something Visual</span></h2><p class="intro">Open for creative collaboration, portfolio design, UI/UX web app concept, social media visual, pitch deck, and digital documentation projects.</p><div class="contact-info"><span><b>Name:</b> Ahmad Nafis Al Adieb</span><span><b>Role:</b> Graphic Designer & UI/UX Web App Designer</span><span><b>Study:</b> Teknologi Industri Pertanian 2025</span><span><b>Email:</b> <a href="mailto:ahmadnafisaladieb@gmail.com">ahmadnafisaladieb@gmail.com</a></span><span><b>Location:</b> Kalimantan Selatan, Indonesia</span></div><div class="hero-actions"><a class="magnetic btn-primary" href="mailto:ahmadnafisaladieb@gmail.com">Contact Me</a><a class="magnetic btn-ghost" href="#works">View Works</a><a class="magnetic btn-ghost" href="#opening">Download Portfolio</a></div></div><form class="contact-form glass reveal" onsubmit="event.preventDefault(); window.location.href='mailto:ahmadnafisaladieb@gmail.com?subject=Creative%20Project%20Collaboration';"><div class="field">Your Name</div><div class="field">Your Email</div><div class="field" style="min-height:150px">Tell me about your project...</div><button class="magnetic btn-primary" type="submit">Send Collaboration Request ↗</button></form></div></section>
+      <footer class="footer"><span>Selected Works 2026 — Ahmad Nafis Al Adieb</span><span>Graphic Design / UI UX Web App / Digital Storytelling</span></footer>
+    </div>
+  </main>
+
+  <div class="visual-editor-hud" id="visualEditorHUD" aria-hidden="true">
+    <span class="visual-editor-pill">MODE EDITOR AKTIF</span>
+    <span class="visual-editor-hint">Klik teks untuk edit, klik foto untuk ganti URL, tahan lalu geser kotak untuk ubah tata letak.</span>
+    <button class="visual-editor-btn primary" id="visualSaveBtn" type="button">Simpan Perubahan</button>
+    <button class="visual-editor-btn" id="visualOpenPanelBtn" type="button">Panel Admin</button>
+    <button class="visual-editor-btn" id="visualResetLayoutBtn" type="button">Reset Layout</button>
+    <button class="visual-editor-btn danger" id="visualExitBtn" type="button">Keluar Editor</button>
+  </div>
+  <div class="visual-selection-tip" id="visualSelectionTip">Mode Editor</div>
+
+  <div class="porto-admin" id="portfolioAdmin" aria-hidden="true">
+    <div class="admin-shell">
+      <div class="admin-head">
+        <div>
+          <strong>Portfolio Admin Edit</strong><br>
+          <span>Hidden access: klik foto berdiri 5x. Edit tulisan, layout, kotak, foto, dan halaman baru tanpa merusak desain lama.</span>
+        </div>
+        <div class="admin-actions">
+          <button class="admin-btn lime" id="adminLiveEditBtn" type="button">Mode Editor Visual</button>
+          <button class="admin-btn primary" id="adminSaveBtn" type="button">Simpan ke Supabase</button>
+          <button class="admin-btn" id="adminExportBtn" type="button">Export JSON</button>
+          <button class="admin-close-x" id="adminCloseBtn" type="button" aria-label="Tutup admin">×</button>
+        </div>
+      </div>
+      <div class="admin-body">
+        <aside class="admin-side">
+          <p>Status editor: <b id="adminAuthStatus">Belum login</b>. Jalankan SQL Supabase dulu, lalu login dengan passcode.</p>
+          <div class="admin-tabs" id="adminTabs">
+            <button class="admin-tab active" data-tab="login" type="button">Login</button>
+            <button class="admin-tab" data-tab="text" type="button">Tulisan</button>
+            <button class="admin-tab" data-tab="photo" type="button">Foto</button>
+            <button class="admin-tab" data-tab="box" type="button">Kotak Baru</button>
+            <button class="admin-tab" data-tab="page" type="button">Halaman Baru</button>
+            <button class="admin-tab" data-tab="layout" type="button">Layout / CSS</button>
+          </div>
+        </aside>
+        <section class="admin-main">
+          <div class="admin-panel active" data-panel="login">
+            <div class="admin-login">
+              <div class="admin-card">
+                <h3>Masuk Editor</h3>
+                <p>Gunakan passcode dari SQL Editor. Default yang sudah disiapkan: <span class="admin-kbd">NafaPorto2026!</span></p>
+                <div class="admin-field">
+                  <label>Passcode Admin</label>
+                  <input type="password" id="adminPasscode" placeholder="Masukkan passcode admin" autocomplete="current-password">
+                </div>
+                <div class="admin-actions">
+                  <button class="admin-btn primary" id="adminLoginBtn" type="button">Login & Buka Editor</button>
+                  <button class="admin-btn" id="adminLoadBtn" type="button">Reload Data Supabase</button>
+                  <button class="admin-btn danger" id="adminLogoutBtn" type="button">Logout</button>
+                </div>
+                <p class="admin-secret-note">Catatan: admin ini tersembunyi dari tampilan utama, tetapi keamanan tetap dipegang oleh RPC + passcode di database Supabase, bukan sekadar hidden button.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" data-panel="text">
+            <div class="admin-card">
+              <h3>Edit Tulisan Website</h3>
+              <p>Ubah teks dari elemen portfolio. HTML sederhana seperti &lt;br&gt;, &lt;b&gt;, &lt;span class="lime"&gt; boleh dipakai.</p>
+              <div class="admin-actions" style="margin-bottom:14px">
+                <button class="admin-btn" id="adminRefreshFieldsBtn" type="button">Refresh Daftar Elemen</button>
+                <button class="admin-btn lime" id="adminApplyTextBtn" type="button">Terapkan Tulisan</button>
+              </div>
+              <div class="admin-text-list" id="adminTextFields"></div>
+            </div>
+          </div>
+
+          <div class="admin-panel" data-panel="photo">
+            <div class="admin-grid">
+              <div class="admin-card">
+                <h3>Edit Foto Utama</h3>
+                <p>Masukkan URL gambar atau upload file kecil. Untuk performa Vercel, URL gambar lebih disarankan.</p>
+                <img class="admin-mini-preview" id="adminPortraitPreview" alt="Preview foto admin">
+                <div class="admin-field">
+                  <label>URL Foto Portrait</label>
+                  <input type="url" id="adminPortraitUrl" placeholder="https://...">
+                </div>
+                <div class="admin-field">
+                  <label>Upload Foto dari Device</label>
+                  <input type="file" id="adminPortraitFile" accept="image/*">
+                </div>
+                <div class="admin-actions">
+                  <button class="admin-btn lime" id="adminApplyPortraitBtn" type="button">Terapkan Foto</button>
+                </div>
+              </div>
+              <div class="admin-card">
+                <h3>Foto / Aset Custom Section</h3>
+                <p>Untuk foto tambahan, isi URL gambar saat membuat halaman baru. Semua tersimpan di state Supabase.</p>
+                <div class="admin-field">
+                  <label>Catatan Aset</label>
+                  <textarea id="adminAssetNotes" placeholder="Contoh: URL sertifikat, foto project, mockup, dokumentasi..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" data-panel="box">
+            <div class="admin-grid">
+              <div class="admin-card">
+                <h3>Tambah Kotak Project Baru</h3>
+                <p>Kotak baru akan ditambahkan di bagian Selected Works tanpa menghapus kartu lama.</p>
+                <div class="admin-field"><label>Judul</label><input id="adminCardTitle" placeholder="Nama project baru"></div>
+                <div class="admin-field"><label>Tahun</label><input id="adminCardYear" placeholder="2026" value="2026"></div>
+                <div class="admin-field"><label>Tag / Kategori</label><input id="adminCardTags" placeholder="UI/UX, Branding, Web App"></div>
+                <div class="admin-field"><label>Deskripsi</label><textarea id="adminCardDesc" placeholder="Deskripsi project..."></textarea></div>
+                <div class="admin-field"><label>Bullet Output</label><textarea id="adminCardBullets" placeholder="Satu bullet per baris"></textarea></div>
+                <div class="admin-field"><label>Teks Visual Besar</label><input id="adminCardVisual" placeholder="PROJECT"></div>
+                <button class="admin-btn primary" id="adminAddCardBtn" type="button">Tambah Kotak</button>
+              </div>
+              <div class="admin-card">
+                <h3>Kotak Tambahan</h3>
+                <p>Daftar kotak yang dibuat lewat admin.</p>
+                <div class="admin-list" id="adminCardsList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" data-panel="page">
+            <div class="admin-grid">
+              <div class="admin-card">
+                <h3>Tambah Halaman / Section Baru</h3>
+                <p>Section baru akan muncul sebelum Contact. Cocok untuk halaman sertifikat, galeri, detail case study, atau CV.</p>
+                <div class="admin-field"><label>Judul Section</label><input id="adminSectionTitle" placeholder="Contoh: Case Study Detail"></div>
+                <div class="admin-field"><label>Subtitle</label><textarea id="adminSectionSubtitle" placeholder="Kalimat pembuka section..."></textarea></div>
+                <div class="admin-field"><label>Isi Utama</label><textarea id="adminSectionBody" placeholder="Isi section. Boleh pakai HTML sederhana."></textarea></div>
+                <div class="admin-field"><label>URL Foto / Gambar Pendukung</label><input id="adminSectionImage" placeholder="https://..."></div>
+                <button class="admin-btn primary" id="adminAddSectionBtn" type="button">Tambah Halaman</button>
+              </div>
+              <div class="admin-card">
+                <h3>Halaman Tambahan</h3>
+                <p>Daftar section yang dibuat lewat admin.</p>
+                <div class="admin-list" id="adminSectionsList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-panel" data-panel="layout">
+            <div class="admin-card">
+              <h3>Edit Layout / CSS Custom</h3>
+              <p>Tambahkan CSS untuk mengatur jarak, ukuran kotak, grid, warna, atau tataletak tanpa mengubah kode lama. Contoh: <span class="admin-kbd">.project-card{min-height:560px}</span></p>
+              <div class="admin-field">
+                <label>Custom CSS</label>
+                <textarea class="admin-code" id="adminCustomCSS" style="min-height:260px" placeholder="/* CSS custom admin */"></textarea>
+              </div>
+              <div class="admin-actions">
+                <button class="admin-btn lime" id="adminApplyCSSBtn" type="button">Terapkan CSS</button>
+                <button class="admin-btn" id="adminResetLocalBtn" type="button">Reset Draft Lokal</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="admin-status" id="adminStatusToast"></div>
+  </div>
+
+
+  <script>
+    const root=document.documentElement,cursor=document.querySelector('.cursor'),dot=document.querySelector('.cursor-dot');
+    window.addEventListener('mousemove',e=>{root.style.setProperty('--mx',e.clientX+'px');root.style.setProperty('--my',e.clientY+'px');cursor.style.left=dot.style.left=e.clientX+'px';cursor.style.top=dot.style.top=e.clientY+'px'});
+    document.querySelectorAll('a,button,.project-card,.skill-card,.cert-card').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('active'));el.addEventListener('mouseleave',()=>cursor.classList.remove('active'))});
+    window.addEventListener('load',()=>setTimeout(()=>document.querySelector('.preloader').classList.add('hide'),900));
+    const opening=document.getElementById('opening'),site=document.getElementById('site'),enter=document.getElementById('enterBtn');
+    enter.addEventListener('click',()=>{opening.classList.add('zoomed');setTimeout(()=>{opening.style.display='none';site.classList.add('active');window.scrollTo(0,0)},900)});
+    document.querySelectorAll('.magnetic').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;btn.style.transform=`translate(${x*.18}px,${y*.18}px)`});btn.addEventListener('mouseleave',()=>btn.style.transform='translate(0,0)')});
+    const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.16});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    document.querySelectorAll('.project-card').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-4px)`});card.addEventListener('mouseleave',()=>card.style.transform='rotateY(0) rotateX(0)')});
+    window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelectorAll('.portrait-frame img,.big-watermark').forEach((el,i)=>{el.style.transform=i===0?`translateX(-50%) translateY(${y*.025}px)`: `translateY(${y*.015}px)`})},{passive:true});
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (()=>{
+      const SUPABASE_URL='https://vaxiveegaduyvtbcbwra.supabase.co';
+      const SUPABASE_KEY='sb_publishable_TPFM9J_pQd3qaPSnk_855A_dLrpA9-E';
+      const STORAGE_KEY='porto_admin_state_v1';
+      const TOKEN_KEY='porto_admin_token_v1';
+      let sb=null, adminToken=localStorage.getItem(TOKEN_KEY)||'', liveEdit=false, clickCount=0, clickTimer=null;
+      const defaultState={version:2,texts:{},images:{},layout:{},customCSS:'',assetNotes:'',cards:[],sections:[],updatedAt:null};
+      let state=structuredCloneSafe(defaultState);
+      const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+      function structuredCloneSafe(obj){try{return structuredClone(obj)}catch(e){return JSON.parse(JSON.stringify(obj))}}
+      function escapeHTML(v=''){return String(v).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[m]))}
+      function lines(v=''){return String(v).split('\n').map(x=>x.trim()).filter(Boolean)}
+      function uid(){return 'adm_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7)}
+      function toast(msg,type='ok'){
+        const el=$('#adminStatusToast'); if(!el) return;
+        el.textContent=msg; el.className='admin-status show '+(type==='err'?'err':'ok');
+        clearTimeout(el._t); el._t=setTimeout(()=>el.className='admin-status',2600);
+      }
+      function initSupabase(){
+        if(window.supabase && !sb){
+          try{sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}})}catch(e){console.warn('Supabase init failed',e)}
+        }
+        return sb;
+      }
+      function mergeState(input){
+        const next=Object.assign(structuredCloneSafe(defaultState), input||{});
+        next.texts=Object.assign({}, input?.texts||{});
+        next.images=Object.assign({}, input?.images||{});
+        next.layout=Object.assign({}, input?.layout||{});
+        next.cards=Array.isArray(input?.cards)?input.cards:[];
+        next.sections=Array.isArray(input?.sections)?input.sections:[];
+        return next;
+      }
+      function buildTextTargets(){
+        const targets=[
+          ['opening_title','.portfolio-title','Opening Title'],['opening_subtitle','.subtitle','Opening Subtitle'],['hero_eyebrow','.hero-copy .eyebrow','Hero Eyebrow'],['hero_name','.hero-copy .name-title','Nama Utama'],['hero_intro','.hero-copy .intro','Intro Hero'],['about_text','.about-card p','About Me'],['contact_title','.contact-title','Judul Contact'],['contact_intro','#contact .intro','Intro Contact']
+        ].map(([key,selector,label])=>({key,selector,label}));
+        $$('.section-head h2').forEach((el,i)=>{el.dataset.adminKey=el.dataset.adminKey||`section_title_${i+1}`;targets.push({key:el.dataset.adminKey,selector:`[data-admin-key="${el.dataset.adminKey}"]`,label:`Judul Section ${i+1}`})});
+        $$('.section-head p').forEach((el,i)=>{el.dataset.adminKey=el.dataset.adminKey||`section_subtitle_${i+1}`;targets.push({key:el.dataset.adminKey,selector:`[data-admin-key="${el.dataset.adminKey}"]`,label:`Subtitle Section ${i+1}`})});
+        $$('.project-card:not(.admin-added-card)').forEach((card,i)=>{
+          const h=$('h3',card), p=$('p',card); if(h){h.dataset.adminKey=h.dataset.adminKey||`project_${i+1}_title`;targets.push({key:h.dataset.adminKey,selector:`[data-admin-key="${h.dataset.adminKey}"]`,label:`Project ${i+1} - Judul`})}
+          if(p){p.dataset.adminKey=p.dataset.adminKey||`project_${i+1}_desc`;targets.push({key:p.dataset.adminKey,selector:`[data-admin-key="${p.dataset.adminKey}"]`,label:`Project ${i+1} - Deskripsi`})}
+        });
+        $$('.skill-card h3,.skill-card p,.exp-card h3,.exp-card p,.cert-card h3,.cert-card p,.contact-info span').forEach((el,i)=>{
+          el.dataset.adminKey=el.dataset.adminKey||`content_${i+1}`;targets.push({key:el.dataset.adminKey,selector:`[data-admin-key="${el.dataset.adminKey}"]`,label:`Konten Detail ${i+1}`})
+        });
+        return targets.filter(t=>$(t.selector));
+      }
+      function applyTextState(){
+        buildTextTargets().forEach(t=>{const el=$(t.selector); if(el && state.texts[t.key]!==undefined) el.innerHTML=state.texts[t.key];});
+      }
+      function imageKeyFor(el,i){
+        if(el.closest('.portrait-frame')) return 'portrait';
+        el.dataset.visualImageKey=el.dataset.visualImageKey||`image_${i+1}`;
+        return el.dataset.visualImageKey;
+      }
+      function buildImageTargets(){
+        return $$('img').filter(img=>!img.closest('.porto-admin')).map((img,i)=>({el:img,key:imageKeyFor(img,i)}));
+      }
+      function applyImages(){
+        const portrait=$('.portrait-frame img');
+        const src=state.images?.portrait;
+        if(portrait && src){portrait.src=src;}
+        buildImageTargets().forEach(({el,key})=>{if(state.images && state.images[key]) el.src=state.images[key];});
+        const prev=$('#adminPortraitPreview'), input=$('#adminPortraitUrl');
+        if(prev) prev.src=(src||portrait?.src||'');
+        if(input) input.value=(src||portrait?.src||'');
+        const notes=$('#adminAssetNotes'); if(notes) notes.value=state.assetNotes||'';
+      }
+      function applyCSS(){
+        let style=$('#portoAdminCustomCSS');
+        if(!style){style=document.createElement('style');style.id='portoAdminCustomCSS';document.head.appendChild(style)}
+        style.textContent=state.customCSS||'';
+        const field=$('#adminCustomCSS'); if(field) field.value=state.customCSS||'';
+      }
+      function layoutKeyFor(el,i){
+        if(el.dataset.customId) return `custom_card_${el.dataset.customId}`;
+        if(el.id) return `box_${el.id}`;
+        if(el.classList.contains('about-card')) return 'box_about_card';
+        if(el.classList.contains('skill-mini')) return 'box_skill_mini';
+        if(el.classList.contains('portrait-frame')) return 'box_portrait_frame';
+        const cls=['project-card','skill-card','exp-card','cert-card','roadmap-panel','contact-form','exp-preview','preview-window','profile-stack'].find(c=>el.classList.contains(c));
+        return `${cls||'box'}_${i+1}`;
+      }
+      function buildLayoutTargets(){
+        const selector='.project-card,.skill-card,.exp-card,.cert-card,.about-card,.skill-mini,.portrait-frame,.contact-form,.roadmap-panel,.exp-preview,.preview-window,.profile-stack';
+        return $$(selector).filter(el=>!el.closest('.porto-admin') && !el.closest('.visual-editor-hud')).map((el,i)=>{
+          el.dataset.visualLayoutKey=el.dataset.visualLayoutKey||layoutKeyFor(el,i);
+          return {el,key:el.dataset.visualLayoutKey};
+        });
+      }
+      function applyLayout(){
+        state.layout=state.layout||{};
+        buildLayoutTargets().forEach(({el,key})=>{
+          const pos=state.layout[key];
+          el.dataset.visualBox='true';
+          if(pos && (Number(pos.x)||Number(pos.y))){
+            el.style.transform=`translate(${Number(pos.x)||0}px, ${Number(pos.y)||0}px)`;
+          }else if(el.dataset.visualTransformApplied==='true'){
+            el.style.transform='';
+            delete el.dataset.visualTransformApplied;
+          }
+          if(pos) el.dataset.visualTransformApplied='true';
+        });
+      }
+      function collectVisualDraft(){
+        state.layout=state.layout||{};
+        if(liveEdit){
+          buildTextTargets().forEach(t=>{
+            const el=$(t.selector);
+            if(el && el.isContentEditable){state.texts[t.key]=el.innerHTML;}
+          });
+        }
+        state.updatedAt=new Date().toISOString();
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+      }
+      function refreshVisualTargets(){
+        buildTextTargets().forEach(t=>{
+          const el=$(t.selector); if(!el) return;
+          el.dataset.adminLive='true';
+          el.dataset.adminKey=t.key;
+          el.contentEditable=liveEdit?'true':'false';
+          el.spellcheck=false;
+          el.removeEventListener('input',liveInputHandler);
+          el.removeEventListener('blur',liveBlurHandler);
+          if(liveEdit){el.addEventListener('input',liveInputHandler);el.addEventListener('blur',liveBlurHandler);}
+        });
+        buildImageTargets().forEach(({el,key})=>{
+          el.dataset.visualImage='true'; el.dataset.visualImageKey=key;
+          el.removeEventListener('click',visualImageClick);
+          if(liveEdit) el.addEventListener('click',visualImageClick);
+        });
+        buildLayoutTargets().forEach(({el,key})=>{
+          el.dataset.visualBox='true'; el.dataset.visualLayoutKey=key;
+          el.removeEventListener('pointerdown',visualBoxPointerDown);
+          if(liveEdit) el.addEventListener('pointerdown',visualBoxPointerDown);
+        });
+        applyLayout();
+      }
+      function enterVisualEditor(){
+        if(!adminToken){toast('Login admin dulu sebelum masuk Mode Editor.','err'); openAdmin(); setTab('login'); return;}
+        liveEdit=true;
+        document.body.classList.add('admin-editing','visual-editor-mode');
+        $('#visualEditorHUD')?.setAttribute('aria-hidden','false');
+        refreshVisualTargets();
+        $('#adminLiveEditBtn').textContent='Matikan Mode Editor';
+        const admin=$('#portfolioAdmin'); if(admin){admin.classList.remove('open'); admin.setAttribute('aria-hidden','true');}
+        toast('MODE EDITOR AKTIF: klik teks/foto, atau geser kotak.');
+      }
+      function exitVisualEditor(){
+        liveEdit=false;
+        document.body.classList.remove('admin-editing','visual-editor-mode');
+        $('#visualEditorHUD')?.setAttribute('aria-hidden','true');
+        buildTextTargets().forEach(t=>{const el=$(t.selector); if(el){el.contentEditable='false';el.removeEventListener('input',liveInputHandler);el.removeEventListener('blur',liveBlurHandler);}});
+        buildImageTargets().forEach(({el})=>el.removeEventListener('click',visualImageClick));
+        buildLayoutTargets().forEach(({el})=>{el.removeEventListener('pointerdown',visualBoxPointerDown);el.classList.remove('visual-dragging');});
+        $('#adminLiveEditBtn').textContent='Mode Editor Visual';
+        toast('Mode Editor dimatikan.');
+      }
+      function toggleLiveEdit(force){
+        const next=typeof force==='boolean'?force:!liveEdit;
+        if(next) enterVisualEditor(); else exitVisualEditor();
+      }
+      function liveInputHandler(e){
+        const key=e.currentTarget.dataset.adminKey;
+        if(key){state.texts[key]=e.currentTarget.innerHTML; state.updatedAt=new Date().toISOString();}
+      }
+      function liveBlurHandler(e){
+        const key=e.currentTarget.dataset.adminKey || buildTextTargets().find(t=>$(t.selector)===e.currentTarget)?.key;
+        if(key){state.texts[key]=e.currentTarget.innerHTML; localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); renderTextEditor();}
+      }
+      function visualImageClick(e){
+        if(!liveEdit) return;
+        e.preventDefault(); e.stopPropagation();
+        const img=e.currentTarget;
+        const key=img.dataset.visualImageKey || 'portrait';
+        const next=prompt('Tempel URL gambar baru untuk mengganti foto ini:', img.src || '');
+        if(next && next.trim()){
+          state.images=state.images||{};
+          state.images[key]=next.trim();
+          if(key==='portrait') state.images.portrait=next.trim();
+          img.src=next.trim();
+          applyImages();
+          localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+          toast('Foto diganti sebagai draft. Klik Simpan Perubahan untuk publish.');
+        }
+      }
+      function visualBoxPointerDown(e){
+        if(!liveEdit || e.button===2) return;
+        if(e.target.closest('[contenteditable="true"],img,a,button,input,textarea,.visual-editor-hud,.porto-admin')) return;
+        const el=e.currentTarget;
+        const key=el.dataset.visualLayoutKey;
+        if(!key) return;
+        e.preventDefault(); e.stopPropagation();
+        state.layout=state.layout||{};
+        const start=state.layout[key]||{x:0,y:0};
+        const sx=e.clientX, sy=e.clientY;
+        let moved=false;
+        el.classList.add('visual-dragging');
+        const prevTransition=el.style.transition;
+        el.style.transition='none';
+        try{el.setPointerCapture(e.pointerId)}catch(_){}
+        const move=ev=>{
+          moved=true;
+          const x=(Number(start.x)||0)+(ev.clientX-sx);
+          const y=(Number(start.y)||0)+(ev.clientY-sy);
+          state.layout[key]={x:Math.round(x),y:Math.round(y)};
+          el.dataset.visualTransformApplied='true';
+          el.style.transform=`translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+        };
+        const up=ev=>{
+          try{el.releasePointerCapture(e.pointerId)}catch(_){}
+          el.classList.remove('visual-dragging');
+          el.style.transition=prevTransition;
+          el.removeEventListener('pointermove',move);
+          el.removeEventListener('pointerup',up);
+          el.removeEventListener('pointercancel',up);
+          if(moved){collectVisualDraft(); toast('Tata letak berubah sebagai draft. Klik Simpan Perubahan untuk publish.');}
+        };
+        el.addEventListener('pointermove',move);
+        el.addEventListener('pointerup',up);
+        el.addEventListener('pointercancel',up);
+      }
+
+      function renderCards(){
+        $$('.admin-added-card').forEach(el=>el.remove());
+        const grid=$('.works-grid'); if(!grid) return;
+        (state.cards||[]).filter(c=>c && c.active!==false).forEach(c=>{
+          const tags=lines(c.tags||'').concat(String(c.tags||'').includes(',')?String(c.tags).split(',').map(x=>x.trim()).filter(Boolean):[]);
+          const uniqueTags=[...new Set(tags.length?tags:['Custom'])];
+          const bullets=lines(c.bullets||'');
+          const article=document.createElement('article');
+          article.className='project-card glass reveal visible admin-added-card';
+          article.dataset.customId=c.id;
+          article.innerHTML=`<span class="year">${escapeHTML(c.year||'2026')}</span><h3>${escapeHTML(c.title||'Untitled Project')}</h3><div class="project-meta">${uniqueTags.map(t=>`<span class="tag">${escapeHTML(t)}</span>`).join('')}</div><p>${escapeHTML(c.description||'Deskripsi project baru.').replace(/\n/g,'<br>')}</p><ul class="outputs">${bullets.map(b=>`<li>${escapeHTML(b)}</li>`).join('')}</ul><a class="view-btn" href="#contact">View Case Study ↗</a><div class="project-visual"><div class="visual-title">${escapeHTML(c.visualTitle||c.title||'NEW')}</div></div>`;
+          grid.appendChild(article);
+        });
+        renderAdminLists();
+      }
+      function renderSections(){
+        $$('.admin-added-section').forEach(el=>el.remove());
+        const contact=$('#contact'); const parent=contact?.parentElement; if(!contact || !parent) return;
+        (state.sections||[]).filter(s=>s && s.active!==false).forEach(s=>{
+          const section=document.createElement('section');
+          section.className='section admin-added-section'; section.id=s.id||uid();
+          section.innerHTML=`<div class="grid-bg"></div><div class="container"><div class="section-head reveal visible"><div class="big-watermark">CUSTOM</div><h2>${escapeHTML(s.title||'Halaman Baru')}</h2><p>${escapeHTML(s.subtitle||'Section tambahan dari admin.').replace(/\n/g,'<br>')}</p></div><div class="glass" style="border-radius:34px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:1fr ${s.imageUrl?'minmax(240px,.6fr)':''};gap:28px;align-items:center"><div style="color:rgba(255,255,255,.72);line-height:1.85;font-size:15px">${String(s.body||'Isi halaman baru.').replace(/\n/g,'<br>')}</div>${s.imageUrl?`<img src="${escapeHTML(s.imageUrl)}" alt="${escapeHTML(s.title||'Custom image')}" style="width:100%;border-radius:26px;border:1px solid rgba(255,255,255,.14);object-fit:cover;max-height:420px">`:''}</div></div>`;
+          parent.insertBefore(section,contact);
+        });
+        renderAdminLists();
+      }
+      function applyState(){applyTextState();applyImages();applyCSS();renderCards();renderSections();applyLayout();if(liveEdit) refreshVisualTargets();renderTextEditor();}
+      function renderTextEditor(){
+        const box=$('#adminTextFields'); if(!box) return; box.innerHTML='';
+        buildTextTargets().forEach(t=>{
+          const el=$(t.selector); if(!el) return;
+          const current=state.texts[t.key]!==undefined?state.texts[t.key]:el.innerHTML;
+          const item=document.createElement('div'); item.className='admin-text-item';
+          item.innerHTML=`<div class="row"><b>${escapeHTML(t.label)}</b><small>${escapeHTML(t.key)}</small></div><div class="admin-field"><textarea data-text-key="${escapeHTML(t.key)}">${escapeHTML(current)}</textarea></div>`;
+          box.appendChild(item);
+        });
+      }
+      function collectTextEditor(){
+        $$('[data-text-key]').forEach(area=>{state.texts[area.dataset.textKey]=area.value;});
+        state.updatedAt=new Date().toISOString();
+      }
+      function renderAdminLists(){
+        const cards=$('#adminCardsList'); if(cards){
+          cards.innerHTML=(state.cards||[]).length?'':'';
+          (state.cards||[]).forEach(c=>{const row=document.createElement('div');row.className='admin-list-row';row.innerHTML=`<div><b>${escapeHTML(c.title||'Untitled')}</b><br><small>${escapeHTML(c.year||'2026')}</small></div><button class="admin-btn danger" data-remove-card="${escapeHTML(c.id)}" type="button">Hapus</button>`;cards.appendChild(row)});
+          if(!(state.cards||[]).length) cards.innerHTML='<div class="admin-help">Belum ada kotak tambahan.</div>';
+        }
+        const sections=$('#adminSectionsList'); if(sections){
+          sections.innerHTML='';
+          (state.sections||[]).forEach(s=>{const row=document.createElement('div');row.className='admin-list-row';row.innerHTML=`<div><b>${escapeHTML(s.title||'Halaman Baru')}</b><br><small>${escapeHTML(s.id||'')}</small></div><button class="admin-btn danger" data-remove-section="${escapeHTML(s.id)}" type="button">Hapus</button>`;sections.appendChild(row)});
+          if(!(state.sections||[]).length) sections.innerHTML='<div class="admin-help">Belum ada halaman tambahan.</div>';
+        }
+      }
+      function openAdmin(){const admin=$('#portfolioAdmin'); if(!admin) return; admin.classList.add('open'); admin.setAttribute('aria-hidden','false'); renderTextEditor(); applyImages(); applyCSS(); renderAdminLists(); refreshVisualTargets(); toast(adminToken?'Panel admin terbuka. Mode Editor bisa diaktifkan.':'Login admin dulu untuk membuka Mode Editor.');}
+      function closeAdmin(){const admin=$('#portfolioAdmin'); if(!admin) return; admin.classList.remove('open'); admin.setAttribute('aria-hidden','true');}
+      function setTab(name){$$('.admin-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));$$('.admin-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===name));}
+      async function loadState(){
+        initSupabase();
+        let loaded=null;
+        if(sb){
+          try{const {data,error}=await sb.rpc('portfolio_get_state'); if(error) throw error; loaded=data;}catch(e){console.warn('Supabase state load failed',e.message||e)}
+        }
+        if(!loaded){try{loaded=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null')}catch(e){loaded=null}}
+        if(loaded){state=mergeState(loaded); applyState();}
+        return state;
+      }
+      function collectAdminDraft(){
+        collectTextEditor();
+
+        /* Jika Mode Edit Langsung aktif, ambil teks langsung dari elemen halaman juga.
+           Ini mencegah editan hilang kalau user belum sempat klik keluar/blur. */
+        if(liveEdit){
+          buildTextTargets().forEach(t=>{
+            const el=$(t.selector);
+            if(el && el.isContentEditable){
+              state.texts[t.key]=el.innerHTML;
+            }
+          });
+        }
+
+        collectVisualDraft();
+        state.assetNotes=$('#adminAssetNotes')?.value||state.assetNotes||'';
+        state.customCSS=$('#adminCustomCSS')?.value||state.customCSS||state.css||'';
+        state.css=state.customCSS||state.css||'';
+        state.updatedAt=new Date().toISOString();
+        return state;
+      }
+
+      async function saveState(){
+        collectAdminDraft();
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+        initSupabase();
+        if(!sb){toast('Draft tersimpan lokal, Supabase belum terbaca.','err'); return false;}
+        if(!adminToken){toast('Login dulu agar bisa simpan ke Supabase. Draft tersimpan lokal.','err'); return false;}
+        try{
+          const payload=JSON.parse(JSON.stringify(state));
+          const {data,error}=await sb.rpc('portfolio_save_state',{p_token:adminToken,p_state:payload});
+          if(error) throw error;
+
+          if(data){
+            state=mergeState(data);
+            localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+          }
+
+          toast('Berhasil disimpan ke Supabase.');
+          return true;
+        }catch(e){toast('Gagal simpan Supabase: '+(e.message||'cek SQL/RLS/passcode'), 'err'); return false;}
+      }
+      async function login(){
+        initSupabase(); if(!sb){toast('Supabase client gagal dimuat. Cek koneksi internet/CDN.','err');return;}
+        const pass=$('#adminPasscode')?.value||''; if(!pass){toast('Masukkan passcode admin.','err');return;}
+        try{
+          const {data,error}=await sb.rpc('portfolio_admin_login',{p_passcode:pass}); if(error) throw error;
+          adminToken=data; localStorage.setItem(TOKEN_KEY,adminToken); $('#adminAuthStatus').textContent='Login aktif'; toast('Login berhasil. MODE EDITOR AKTIF.'); setTab('text'); await loadState(); enterVisualEditor();
+        }catch(e){toast('Login gagal: passcode salah atau SQL belum dijalankan.', 'err'); console.warn(e)}
+      }
+      async function logout(){
+        initSupabase(); if(sb && adminToken){try{await sb.rpc('portfolio_admin_logout',{p_token:adminToken})}catch(e){}}
+        adminToken=''; localStorage.removeItem(TOKEN_KEY); $('#adminAuthStatus').textContent='Belum login'; toast('Logout berhasil.');
+      }
+      /* toggleLiveEdit/liveBlurHandler upgraded in visual editor v6 above. */
+      function wireEvents(){
+        const portrait=$('.portrait-frame img');
+        if(portrait){portrait.style.userSelect='none'; portrait.title='Klik 5x untuk admin edit'; portrait.addEventListener('click',()=>{clickCount++; clearTimeout(clickTimer); clickTimer=setTimeout(()=>clickCount=0,1800); if(clickCount>=5){clickCount=0; openAdmin();}})}
+        $('#adminCloseBtn')?.addEventListener('click',closeAdmin);
+        $('#adminTabs')?.addEventListener('click',e=>{const b=e.target.closest('[data-tab]'); if(b) setTab(b.dataset.tab)});
+        $('#adminLoginBtn')?.addEventListener('click',login); $('#adminLogoutBtn')?.addEventListener('click',logout); $('#adminLoadBtn')?.addEventListener('click',async()=>{await loadState();toast('Data dimuat ulang.')});
+        $('#adminSaveBtn')?.addEventListener('click',async()=>{
+          collectAdminDraft();
+          const ok=await saveState();
+          if(ok){
+            applyTextState();
+            applyImages();
+            applyCSS();
+            renderCards();
+            renderSections();
+            renderTextEditor();
+            if(liveEdit) refreshVisualTargets();
+          }
+        });
+        $('#adminLiveEditBtn')?.addEventListener('click',()=>toggleLiveEdit());
+        $('#visualSaveBtn')?.addEventListener('click',async()=>{collectVisualDraft(); const ok=await saveState(); if(ok){applyState(); toast('Perubahan visual berhasil disimpan ke Supabase.')}});
+        $('#visualOpenPanelBtn')?.addEventListener('click',()=>{openAdmin();});
+        $('#visualResetLayoutBtn')?.addEventListener('click',()=>{if(confirm('Reset semua tata letak yang digeser?')){state.layout={}; applyLayout(); collectVisualDraft(); toast('Layout direset sebagai draft. Klik Simpan Perubahan.');}});
+        $('#visualExitBtn')?.addEventListener('click',()=>exitVisualEditor());
+        $('#adminRefreshFieldsBtn')?.addEventListener('click',()=>{renderTextEditor();toast('Daftar elemen diperbarui.')});
+        $('#adminApplyTextBtn')?.addEventListener('click',()=>{collectTextEditor();applyTextState();toast('Tulisan diterapkan. Klik Simpan ke Supabase untuk publish.')});
+        $('#adminApplyPortraitBtn')?.addEventListener('click',()=>{const url=$('#adminPortraitUrl')?.value.trim(); if(url){state.images.portrait=url; applyImages(); toast('Foto diterapkan.');}});
+        $('#adminPortraitFile')?.addEventListener('change',e=>{const file=e.target.files?.[0]; if(!file) return; if(file.size>900000){toast('File besar. Lebih aman pakai URL gambar agar loading cepat.','err')} const reader=new FileReader(); reader.onload=()=>{state.images.portrait=reader.result; applyImages(); toast('Foto upload diterapkan sebagai draft.');}; reader.readAsDataURL(file);});
+        $('#adminApplyCSSBtn')?.addEventListener('click',()=>{state.customCSS=$('#adminCustomCSS')?.value||''; applyCSS(); toast('CSS custom diterapkan.');});
+        $('#adminResetLocalBtn')?.addEventListener('click',()=>{localStorage.removeItem(STORAGE_KEY); toast('Draft lokal dihapus. Reload untuk mengambil data Supabase.');});
+        $('#adminAddCardBtn')?.addEventListener('click',()=>{
+          const card={id:uid(),active:true,title:$('#adminCardTitle')?.value||'Project Baru',year:$('#adminCardYear')?.value||'2026',tags:$('#adminCardTags')?.value||'Custom',description:$('#adminCardDesc')?.value||'',bullets:$('#adminCardBullets')?.value||'',visualTitle:$('#adminCardVisual')?.value||'NEW'};
+          state.cards.push(card); ['#adminCardTitle','#adminCardDesc','#adminCardBullets','#adminCardVisual'].forEach(s=>{const el=$(s); if(el) el.value=''}); renderCards(); toast('Kotak baru ditambahkan.');
+        });
+        $('#adminAddSectionBtn')?.addEventListener('click',()=>{
+          const title=$('#adminSectionTitle')?.value||'Halaman Baru'; const sec={id:uid(),active:true,title,subtitle:$('#adminSectionSubtitle')?.value||'',body:$('#adminSectionBody')?.value||'',imageUrl:$('#adminSectionImage')?.value||''};
+          state.sections.push(sec); ['#adminSectionTitle','#adminSectionSubtitle','#adminSectionBody','#adminSectionImage'].forEach(s=>{const el=$(s); if(el) el.value=''}); renderSections(); toast('Halaman baru ditambahkan.');
+        });
+        document.addEventListener('click',e=>{const rc=e.target.closest('[data-remove-card]'); if(rc){state.cards=state.cards.filter(c=>c.id!==rc.dataset.removeCard);renderCards();toast('Kotak tambahan dihapus dari draft.')} const rs=e.target.closest('[data-remove-section]'); if(rs){state.sections=state.sections.filter(s=>s.id!==rs.dataset.removeSection);renderSections();toast('Halaman tambahan dihapus dari draft.')}});
+        $('#adminExportBtn')?.addEventListener('click',()=>{collectTextEditor(); const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='portfolio-state.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape' && $('#portfolioAdmin')?.classList.contains('open')) closeAdmin(); else if(e.key==='Escape' && liveEdit) exitVisualEditor();});
+      }
+      document.addEventListener('mousemove',e=>{if(liveEdit){e.stopPropagation();}},true);
+      document.addEventListener('DOMContentLoaded',async()=>{initSupabase(); wireEvents(); if(adminToken) $('#adminAuthStatus').textContent='Token tersimpan'; await loadState();});
+      /* Jangan loadState kedua kali setelah 900ms, karena bisa menimpa draft editan yang sedang diketik. */
+      setTimeout(()=>{initSupabase();},900);
+    })();
+  </script>
+
+</body>
+</html>
